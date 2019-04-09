@@ -12,6 +12,11 @@ export default {
   noticeBackground: tintColor,
   noticeText: '#fff',
   primary: 'white',
-  indicator: 'lightgreen',
-  background: '#dadada'
+  primaryText: '#222',
+  secondary: 'darkblue',
+  secondaryText: 'white',
+  indicator: 'magenta',
+  indicatorText: 'white',
+  background: '#dadada',
+  backgroundColor: '#222'
 }

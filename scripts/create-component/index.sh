@@ -7,7 +7,7 @@ index_template="$bash_path/defaults/index.ts"
 component_template="$bash_path/defaults/component.tsx"
 
 # Path variables
-main_path="app/"
+main_path="src/"
 directory=$main_path$1
 name=${directory##*/}
 index="$directory/index.ts"
