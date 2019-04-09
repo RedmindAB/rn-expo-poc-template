@@ -4,22 +4,35 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject",
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
+    "tsi": "scripts/npm-tsi/index.sh",
+    "create-component": "scripts/create-component/index.sh"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
+    "axios": "^0.18.0",
+    "color": "^3.1.0",
     "expo": "^32.0.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^3.0.9",
+    "react-navigation-transitions": "^1.0.9",
+    "react-redux": "^7.0.1",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^32.0.0"
+    "@types/axios": "^0.14.0",
+    "@types/color": "^3.0.0",
+    "@types/expo": "^32.0.10",
+    "@types/react": "^16.8.13",
+    "@types/react-navigation": "^3.0.6",
+    "@types/react-redux": "^7.0.6",
+    "jest-expo": "^32.0.0",
+    "typescript": "^3.4.2"
   },
   "private": true
 }
