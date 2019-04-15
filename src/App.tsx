@@ -6,6 +6,9 @@ import AppNavigator from './navigation'
 import colors from './constants/colors'
 import config from './constants/config'
 
+import { Provider } from 'mobx-react/native'
+import mobx from './mobx'
+
 export default class App extends React.Component {
   state = {
     fontsLoaded: !config.USE_CUSTOM_FONTS
@@ -30,7 +33,11 @@ export default class App extends React.Component {
   render() {
     const { fontsLoaded } = this.state
 
-    return <View style={styles.container}>{fontsLoaded && <AppNavigator />}</View>
+    return (
+      <Provider {...mobx}>
+        <View style={styles.container}>{fontsLoaded && <AppNavigator />}</View>
+      </Provider>
+    )
   }
 }
 
