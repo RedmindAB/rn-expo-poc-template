@@ -1,31 +1,42 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Provider } from 'react-redux'
-import { PersistGate } from 'redux-persist/integration/react'
+import { Font } from 'expo'
 
 import AppNavigator from './navigation'
-import configureStore from './redux/store'
 import colors from './constants/colors'
-
-const { store, persistor } = configureStore()
+import config from './constants/config'
 
 export default class App extends React.Component {
+  state = {
+    fontsLoaded: !config.USE_CUSTOM_FONTS
+  }
+
+  async componentDidMount() {
+    if (config.USE_CUSTOM_FONTS) {
+      await Font.loadAsync({
+        'Montserrat-Bold': require('./assets/fonts/Montserrat-Bold.ttf'),
+        'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
+        'Montserrat-Light': require('./assets/fonts/Montserrat-Light.ttf'),
+        'Montserrat-ExtraBold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
+        'Montserrat-Thin': require('./assets/fonts/Montserrat-Thin.ttf'),
+        'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.ttf'),
+        'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.ttf')
+      })
+
+      this.setState({ fontsLoaded: true })
+    }
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Provider store={store}>
-          <PersistGate persistor={persistor}>
-            <AppNavigator />
-          </PersistGate>
-        </Provider>
-      </View>
-    )
+    const { fontsLoaded } = this.state
+
+    return <View style={styles.container}>{fontsLoaded && <AppNavigator />}</View>
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background
+    backgroundColor: colors.white
   }
 })

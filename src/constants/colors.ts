@@ -18,5 +18,8 @@ export default {
   indicator: 'magenta',
   indicatorText: 'white',
   background: '#dadada',
-  backgroundColor: '#222'
+  backgroundColor: '#222',
+  dark: 'rgb(90, 87, 106)',
+  black: 'rgb(31, 26, 65)',
+  white: 'white'
 }
